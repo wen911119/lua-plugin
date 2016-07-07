@@ -1,5 +1,5 @@
 --writeTable("user","name=нд╬Щ,age=24")
---[[function QMPlugin.writeTable(tableName,data)
+function QMPlugin.writeTable(tableName,data)
 	local f=loadfile(__MQM_RUNNER_LOCAL_PATH_GLOBAL_NAME__.."dbPlugin.mysql")
 	local re=f(tableName,data,1)
 	return re
@@ -16,12 +16,18 @@ function QMPlugin.readTable(tableName,target)
 	local re=f(tableName,target,0)
 	return re
 end
+--deleteFromTable("user","name=нд╬Щ")
+function QMPlugin.deleteFromTable(tableName,target)
+	local f=loadfile(__MQM_RUNNER_LOCAL_PATH_GLOBAL_NAME__.."dbPlugin.mysql")
+	local re=f(tableName,target,2)
+	return re
+end
 --excuteSql("select * from user where name='tom'")
 function QMPlugin.excuteSql(sql)
 	local f=loadfile(__MQM_RUNNER_LOCAL_PATH_GLOBAL_NAME__.."dbPlugin.mysql")
 	local re=f(sql)
 	return re
-end--]]
+end
 
 
 --local t="select * from user where name='нд╬Щ'"

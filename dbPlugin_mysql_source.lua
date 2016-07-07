@@ -36,6 +36,11 @@ function QMPlugin.writeFunction()
 				k=i+1
 			end
 			sql="INSERT INTO "..x1.." ("..keys..") VALUES("..values..")"
+		elseif x3==2 then
+			--删除数据
+			local targetStr=x2=string.gsub(x2,","," AND ")
+			sql="DELETE FROM "..x1.." WHERE "..targetStr
+		
 		else 
 			--更新表
 			local targetStr=string.gsub(x2,","," AND ")
